@@ -10,6 +10,14 @@ use lithium\core\Environment;
 use lithium\core\Libraries;
 
 /**
+ * Check for mbstring extension existance
+ */
+if(!extension_loaded('mbstring')) {
+	$message = "The mbstring extension is not loaded! Please enable it in your php.ini.";
+	trigger_error($message, E_USER_ERROR);
+}
+
+/**
  * Define core paths, if we are operating as an independent app.
  */
 if (!defined('LITHIUM_LIBRARY_PATH')) {
